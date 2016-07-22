@@ -1,6 +1,6 @@
 Weak links is an open source broken link test tool that works by crawling a given web site and checking the response code for each link. It leverages the open source crawler4j API (available @ https://github.com/yasserg/crawler4j).
 
-HOw to build the tool from source:
+How to build the tool from source:
 1. Check out the latest version from BitBucket
 2. Run "mvn clean install"
 3. This will generate the basic JAR file, as well as the uber JAR file with all dependencies bundled
