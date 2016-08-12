@@ -28,7 +28,8 @@ public class EmailManager {
 	
 	private static final Logger logger = LoggerFactory.getLogger(EmailManager.class);
 	private Boolean authRequired = false;
-	private String username, password;
+	private String username;
+	private String password;
 	
 	private Properties properties;
 	private MimeMessage message;

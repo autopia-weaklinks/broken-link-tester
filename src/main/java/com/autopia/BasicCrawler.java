@@ -70,7 +70,8 @@ public class BasicCrawler extends WebCrawler {
 	@Override
 	public void visit(Page page) {
 		String pageUrl = page.getWebURL().getURL();
-		String linkUrl, linkAnchor;
+		String linkUrl;
+		String linkAnchor;
 		
 		if (page.getParseData() instanceof HtmlParseData) {
 			HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
@@ -123,7 +124,7 @@ public class BasicCrawler extends WebCrawler {
 					line += "Redirect - OK";
 					report.updateReport(line, true);
 				}
-				//connection.disconnect();
+				// Connection already disconnected - no need to disconnect again
 				
 				break;
 				
@@ -159,8 +160,6 @@ public class BasicCrawler extends WebCrawler {
 			}
 			
 			connection.setInstanceFollowRedirects(false);
-			//connection.setConnectTimeout(5000);
-			//connection.setReadTimeout(5000);
 			connection.connect();
 			return connection;
 		} catch (Exception ex) {
@@ -179,8 +178,8 @@ public class BasicCrawler extends WebCrawler {
 	}
 	
 	private String getFinalUrlAfterRedirection(HttpURLConnection connection) {
-		String Url = connection.getURL().toString();
-		String finalUrl = Url;
+		String url = connection.getURL().toString();
+		String finalUrl = url;
 	    String redirectedUrl;
 		
 		while (true) {
@@ -214,8 +213,8 @@ public class BasicCrawler extends WebCrawler {
 	private String handleRedirectsWithoutProtocol(String baseUrl, String redirectedUrl) {
 		if(baseUrl.contains("?")) {
 			// Handle redirects such as 'press_kits.cfm?presskit_id=68'
-			// from base URL of 'http://m.news.prudential.com/press_file.cfm?presskit_id=68'
-			int position = baseUrl.lastIndexOf("/");
+			// from base URL of 'http://mywebsite.com/press_kits.cfm?presskit_id=68'
+			int position = baseUrl.lastIndexOf('/');
 			return baseUrl.substring(0, position + 1) + redirectedUrl;
 		} else {
 			// Handle redirects such as '/home'

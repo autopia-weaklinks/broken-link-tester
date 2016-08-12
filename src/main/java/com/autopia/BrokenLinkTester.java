@@ -14,14 +14,19 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
 /**
- * Main class which acts as the entry point for the broken link testing program
+ * Main class which acts as the controller for the weak links tool
  * @author vj
  */
 public class BrokenLinkTester {
 	
 	private static Properties properties = Settings.getInstance();
 	
-	public static void main(String args[]) throws Exception {
+	/**
+	 * Entry point for the weak links tool execution
+	 * @param args Command line arguments
+	 * @throws Exception Errors during execution
+	 */
+	public static void main(String[] args) throws Exception {
 	    CrawlConfig config = initializeCrawlConfig();
 	    startCrawlController(config);
 	    
@@ -37,8 +42,8 @@ public class BrokenLinkTester {
 	
 	private static CrawlConfig initializeCrawlConfig() {
 		String crawlStorageFolder = properties.getProperty("CrawlStorageFolder");
-		int politenessDelay = Integer.valueOf(properties.getProperty("CrawlPolitenessDelay"));
-		int maxPagesToFetch = Integer.valueOf(properties.getProperty("CrawlMaxPagesToFetch"));
+		int politenessDelay = Integer.parseInt(properties.getProperty("CrawlPolitenessDelay"));
+		int maxPagesToFetch = Integer.parseInt(properties.getProperty("CrawlMaxPagesToFetch"));
 		
 		CrawlConfig config = new CrawlConfig();
 	    config.setCrawlStorageFolder(crawlStorageFolder);
@@ -52,7 +57,7 @@ public class BrokenLinkTester {
 	
 	private static void startCrawlController(CrawlConfig config) throws Exception {
 		String baseUrl = properties.getProperty("BaseUrl");
-		int crawlThreads = Integer.valueOf(properties.getProperty("CrawlThreads"));
+		int crawlThreads = Integer.parseInt(properties.getProperty("CrawlThreads"));
 		String crawlSeeds = properties.getProperty("CrawlSeeds");
 		
 		PageFetcher pageFetcher = new PageFetcher(config);

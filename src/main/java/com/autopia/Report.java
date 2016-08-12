@@ -25,9 +25,13 @@ public class Report {
 	private static final String REPORT_PATH = PROPERTIES.getProperty("ReportPath");
 	
 	private static String reportPathWithTimeStamp;
-	private static File successFile, failureFile, crawlerLogFile;
-	private static FileWriter successFileWriter, failureFileWriter;
-	private static BufferedWriter successBufferedWriter, failureBufferedWriter;
+	private static File successFile;
+	private static File failureFile;
+	private static File crawlerLogFile;
+	private static FileWriter successFileWriter;
+	private static FileWriter failureFileWriter;
+	private static BufferedWriter successBufferedWriter;
+	private static BufferedWriter failureBufferedWriter;
 	
 	private static final Report REPORT = new Report();
 	

@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.autopia</groupId>
   <artifactId>weaklinks</artifactId>
-  <version>2.0</version>
+  <version>2.0.1</version>
   <name>Weak Links</name>
   <description>Broken link test tool</description>
   <build>
@@ -65,10 +65,11 @@
   </build>
   <issueManagement>
   	<url>https://bitbucket.org/autopiateam/weaklinks/issues?status=new&amp;status=open</url>
+  	<system>BitBucket</system>
   </issueManagement>
   <organization>
   	<name>Autopia</name>
-  	<url>https://bitbucket.org/autopiateam/</url>
+  	<url>https://bitbucket.org/autopiateam</url>
   </organization>
   <dependencies>
   	<dependency>
@@ -84,7 +85,8 @@
   	<dependency>
   		<groupId>ch.qos.logback</groupId>
   		<artifactId>logback-classic</artifactId>
-  		<version>1.1.2</version>
+  		<version>1.1.7</version>
   	</dependency>
   </dependencies>
+  <url>https://bitbucket.org/account/user/autopiateam/projects/WL</url>
 </project>
